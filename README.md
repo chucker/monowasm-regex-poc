@@ -12,7 +12,7 @@ Thus, Mono/WASM lets you run C# in the browser. (And [Blazor](https://blazor.net
 
 ## Status
 
-This is currently barely started.
+This is far along enough that you can use the instructions below to get it working: type in a pattern and a test string, and you get back regex matches according to .NET.
 
 ## Goal
 
@@ -30,4 +30,20 @@ It has only been tested on macOS, but will work largely unchanged on Linux and W
 2. clone this repository in a directory right underneath (such that the SDK is `..`)
 3. run the three shell scripts in the filename-suggested
 
-Your default browser should open with the site running using an ad-hoc Python HTTP server.
+Then, point your browser at http://localhost:8000/sample.html, and try filling the upper two input fields.
+
+You should see a result below, like this:
+
+> **Regular expression pattern:**
+>
+>`^http(s)?://`
+
+>**Test string:**
+>
+>`https://example.com`
+
+>**Matches:**
+>
+>Got 1 matches:
+>
+>https://
