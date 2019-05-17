@@ -22,7 +22,9 @@ The long-term goal of this project is to server as a proof of concept that WebAs
 
 ## Build and Run
 
-The repository comes with shell scripts derived from the Mono project. They will only work on macOS as is (such as due to the use of `open`), but are rather trivial to adjust (for example, on Windows, you'll want `start` instead).
+The repository comes with shell scripts derived from the Mono project.
+
+It has only been tested on macOS, but will work largely unchanged on Linux and Windows.
 
 1. [get the Mono/WASM SDK using these instructions](https://github.com/mono/mono/blob/master/sdks/wasm/docs/getting-started/obtain-wasm-sdk.md)
 2. clone this repository in a directory right underneath (such that the SDK is `..`)
