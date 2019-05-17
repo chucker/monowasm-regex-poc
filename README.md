@@ -12,7 +12,9 @@ Thus, Mono/WASM lets you run C# in the browser. (And [Blazor](https://blazor.net
 
 ## Status
 
-This is far along enough that you can use the instructions below to get it working: type in a pattern and a test string, and you get back regex matches according to .NET.
+This is far along enough that you can use the instructions below to get it working: type in a pattern and a test string, and you get back regex matches according to .NET:
+
+![](README-demo.gif)
 
 ## Goal
 
