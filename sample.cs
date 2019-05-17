@@ -5,24 +5,41 @@ using System.Reflection;
 using WebAssembly;
 using WebAssembly.Net.Http.HttpClient;
 
+using System.Text.RegularExpressions;
+
 using Wasm; // FIXME better namespace naming?
 
 namespace Regexr
 {
-    class Program
+    public static class Program
     {
-        static DOMObject navigator;
-        static DOMObject global;
-        static string BaseApiUrl = string.Empty;
-        static HttpClient httpClient;
-
-        static void Main(string[] args)
+        public static void EvaluateRegex(string pattern, string testString, JSObject outputElement)
         {
-            global = new DOMObject(string.Empty);
-            navigator = new DOMObject("navigator");
+            string output;
 
-            using (var window = (JSObject)WebAssembly.Runtime.GetGlobalObject("window"))
-            {}
+            try
+            {
+                var sb = new System.Text.StringBuilder();
+
+                Regex regex = new Regex(pattern);
+
+                var matches = regex.Matches(testString);
+
+                sb.AppendLine($"Got {matches.Count} matches:\n");
+
+                foreach (Match match in matches)
+                {
+                    sb.AppendLine(match.Value);
+                }
+
+                output = sb.ToString();
+            }
+            catch (Exception ex)
+            {
+                output = $"Error evaluating regex: {ex}";
+            }
+            
+            outputElement.SetObjectProperty("innerText", output);
         }
     }
 }
